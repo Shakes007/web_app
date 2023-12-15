@@ -22,3 +22,7 @@ the user can check tour dates which shows the availability of the concert ticket
 ### Download Docker image:
 * Open terminal and run the following command:
 **docker pull samsodien/web_app**
+
+### Clone repo:
+**git clone https://Shakes007/web_app**
+
