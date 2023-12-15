@@ -9,11 +9,30 @@ from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 # Function to handle User logins.
 def user_login(request):
+    '''
+    Render the login page
+    
+    Args:
+        request (HttpRequest): The HTTP request object.
+        
+    Returns:
+        HttpResponse: The rendered login page.
+    '''
     return render(request, 'authentication/login.html')
 
 
 # Function to authenticate a user.
 def authenticate_user(request):
+    '''
+    Authenticate a user based on provided username and password.
+    
+    Args:
+        request (HttpRequest): The HTTP request object.
+    
+    Returns:
+        HttpResponse: Redirects to the login page if authentication fails,
+                      otherwise, redirects to a page for authenticated users.
+    '''
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(username=username, password=password)
@@ -33,6 +52,17 @@ def authenticate_user(request):
 
 # Function to display a register form for new users.
 def user_registration(request):
+    '''
+    Display a registration form for new users
+    
+    Args:
+        request (HttpRequest): The HTTP request object.
+    
+    Returns:
+        HttpReponse: Render the registration form or redirects to a page for
+                     authenticated users.
+    '''
+
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
