@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Register</title>
+        <!--Load Bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!--Load Boostrap JS and jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <!--Nav bar at the top of the login page.-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Lumnious Alchemy</a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="{% url 'notesync:band_list' %}">HOME</a></li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <br><br><br>
+        <h1 style="text-align: center;">User Reigstration</h1>
+            
+        <form class="container text-center" method="post" action="{% url 'user_auth:user_registration' %}">
+            {% csrf_token %}
+            <!--Space form out-->
+            {{form.as_p}}
+            <br/><br/>
+        
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+    </body>
+</html>
+
+
